@@ -9,4 +9,11 @@ public class Venda {
     private Date vendaData;
     private List<ItemVenda> itens;
     private double total;
+
+    public Venda(Cliente cliente, Date vendaData, List<ItemVenda> itens, double total) {
+        this.cliente = cliente;
+        this.vendaData = vendaData;
+        this.itens = itens;
+        this.total = total;
+    }
 }
