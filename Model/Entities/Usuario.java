@@ -11,4 +11,19 @@ public class Usuario {
         ADMIN,
         FUNCIONARIO
     }
+    public Integer getId() {
+        return id;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public String getLogin() {
+        return login;
+    }
+    public String getSenhaHash() {
+        return senhaHash;
+    }
+    public PerfilUsuario getPerfil() {
+        return perfil;
+    }
 }
