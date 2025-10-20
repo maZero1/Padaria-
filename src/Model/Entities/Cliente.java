@@ -6,6 +6,7 @@ import java.util.List;
 public class Cliente {
     private Integer id;
     private String nome;
+    private String email;
     private String cpf;
     private String telefone;
     private int pontosFidelidade;
@@ -24,14 +25,31 @@ public class Cliente {
     public String getNome() {
         return nome;
     }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public String getCpf() {
         return cpf;
     }
     public String getTelefone() {
         return telefone;
     }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
     public int getPontosFidelidade() {
         return pontosFidelidade;
+    }
+    public void setPontosFidelidade(int pontosFidelidade) {
+        if(pontosFidelidade >= 0) {
+            this.pontosFidelidade = pontosFidelidade;
+        }
     }
     public void adicionarPontos(int pontos) {
         this.pontosFidelidade += pontos;
