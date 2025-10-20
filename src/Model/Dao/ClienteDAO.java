@@ -8,20 +8,23 @@ import java.util.List;
 
 public class ClienteDAO {
     public void adicionarCliente(Cliente cliente) {
-        String sql = "INSERT INTO cliente (nome, email, telefone) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO cliente (nome, cpf, telefone, email, pontos_fidelidade) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, cliente.getNome());
-            pstmt.setString(2, cliente.getEmail());
+            pstmt.setString(2, cliente.getCpf());
             pstmt.setString(3, cliente.getTelefone());
+            pstmt.setString(4, cliente.getEmail());
+            pstmt.setInt(5, cliente.getPontosFidelidade());
             pstmt.executeUpdate();
+            System.out.println("Cliente adicionado com sucesso!");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     public List<Cliente> listarClientes() {
         List<Cliente> clientes = new ArrayList<>();
-        String sql = "SELECT id, nome, email, telefone, pontos_fidelidade FROM cliente";
+        String sql = "SELECT nome, cpf, telefone, email, pontos_fidelidade FROM cliente";
         try (Connection conn = ConnectionFactory.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -30,8 +33,8 @@ public class ClienteDAO {
                     rs.getString("nome"),
                     rs.getString("cpf"),
                     rs.getString("telefone"),
-                    rs.getInt("pontos_fidelidade"),
-                    new ArrayList<>()
+                    rs.getString("email"),
+                    rs.getInt("pontos_fidelidade")
                 );
                 clientes.add(cliente);
             }
@@ -62,7 +65,7 @@ public class ClienteDAO {
         }
     }
     public Cliente buscarClientePorId(int clienteId) {
-        String sql = "SELECT id, nome, email, telefone, pontos_fidelidade FROM cliente WHERE id = ?";
+        String sql = "SELECT nome, cpf, telefone, email, pontos_fidelidade FROM cliente WHERE id = ?";
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, clienteId);
@@ -72,8 +75,8 @@ public class ClienteDAO {
                         rs.getString("nome"),
                         rs.getString("cpf"),
                         rs.getString("telefone"),
-                        rs.getInt("pontos_fidelidade"),
-                        new ArrayList<>()
+                        rs.getString("email"),
+                        rs.getInt("pontos_fidelidade")
                     );
                 }
             }

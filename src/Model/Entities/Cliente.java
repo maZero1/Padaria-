@@ -1,6 +1,6 @@
 package src.Model.Entities;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
@@ -12,20 +12,12 @@ public class Cliente {
     private int pontosFidelidade;
     private List<Venda> vendas;
 
-    public Cliente(String nome, String cpf, String telefone, int pontosFidelidade, List<Venda> vendas) {
+    public Cliente(String nome, String cpf, String telefone, String email, int pontosFidelidade) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.pontosFidelidade = 0;
-        this.vendas = new ArrayList<>();
-    }
-    public Cliente(String nome, String email, String telefone, String cpf) {
-        this.nome = nome;
         this.email = email;
-        this.telefone = telefone;
-        this.cpf = cpf;
-        this.pontosFidelidade = 0;
-        this.vendas = new ArrayList<>();
+        this.pontosFidelidade = pontosFidelidade;
     }
     public int getId() {
         return id;
