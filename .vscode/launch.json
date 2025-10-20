@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TesteProduto",
+            "request": "launch",
+            "mainClass": "src.Test.TesteProduto",
+            "projectName": "Padaria-_9768fb23"
+        },
+        {
+            "type": "java",
             "name": "TesteCliente",
             "request": "launch",
             "mainClass": "src.Test.TesteCliente",
