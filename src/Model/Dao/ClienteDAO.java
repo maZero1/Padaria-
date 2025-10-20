@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ClienteDAO {
     public void adicionarCliente(Cliente cliente) {
-        String sql = "INSERT INTO clientes (nome, email, telefone) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO cliente (nome, email, telefone) VALUES (?, ?, ?)";
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, cliente.getNome());
@@ -21,7 +21,7 @@ public class ClienteDAO {
     }
     public List<Cliente> listarClientes() {
         List<Cliente> clientes = new ArrayList<>();
-        String sql = "SELECT id, nome, email, telefone, pontos_fidelidade FROM clientes";
+        String sql = "SELECT id, nome, email, telefone, pontos_fidelidade FROM cliente";
         try (Connection conn = ConnectionFactory.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
@@ -41,7 +41,7 @@ public class ClienteDAO {
         return clientes;
     }
     public void atualizarPontosFidelidade(int clienteId, int novosPontos) {
-        String sql = "UPDATE clientes SET pontos_fidelidade = ? WHERE id = ?";
+        String sql = "UPDATE cliente SET pontos_fidelidade = ? WHERE id = ?";
         try (Connection conn = ConnectionFactory.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, novosPontos);
@@ -62,7 +62,7 @@ public class ClienteDAO {
         }
     }
     public Cliente buscarClientePorId(int clienteId) {
-        String sql = "SELECT id, nome, email, telefone, pontos_fidelidade FROM clientes WHERE id = ?";
+        String sql = "SELECT id, nome, email, telefone, pontos_fidelidade FROM cliente WHERE id = ?";
         try (Connection conn = ConnectionFactory.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setInt(1, clienteId);

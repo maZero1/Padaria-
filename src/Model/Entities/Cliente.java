@@ -16,7 +16,15 @@ public class Cliente {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.pontosFidelidade = 0; // Inicializa com 0 pontos
+        this.pontosFidelidade = 0;
+        this.vendas = new ArrayList<>();
+    }
+    public Cliente(String nome, String email, String telefone, String cpf) {
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.cpf = cpf;
+        this.pontosFidelidade = 0;
         this.vendas = new ArrayList<>();
     }
     public int getId() {

@@ -9,10 +9,9 @@ public class ClienteController {
     public ClienteController() {
         this.clienteDAO = new ClienteDAO();
     }
-    public void adicionarCliente(String nome, String email, String telefone) {
-        Cliente cliente = new Cliente(nome, email, telefone, 0, null);
+    public void adicionarCliente(String nome, String email, String telefone, String cpf) {
+        Cliente cliente = new Cliente(nome, email, telefone, cpf);
         clienteDAO.adicionarCliente(cliente);
-        
     }
     public List<Cliente> listarClientes() {
         return clienteDAO.listarClientes();
