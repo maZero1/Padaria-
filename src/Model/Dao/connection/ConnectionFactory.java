@@ -12,7 +12,6 @@ public class ConnectionFactory {
 
     public static Connection getConnection() {
         try {
-            // Carrega o driver do PostgreSQL
             Class.forName("org.postgresql.Driver");
 
             // Retorna a conexão

@@ -15,6 +15,9 @@ public class ItemVenda {
         this.quantidade = quantidade;
         this.subTotal = produto.getPreco() * quantidade;
     }
+    public int getIdProduto() {
+        return produto.getId();
+    }
     public Produto getProduto() {
         return produto;
     }
